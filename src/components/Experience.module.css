@@ -1,0 +1,139 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--glass-border);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 0;
+  left: -2.35rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  border: 4px solid var(--bg-color);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.timelineContent {
+  padding: 2rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.timelineContent:hover {
+  transform: translateX(10px);
+}
+
+.role {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.company {
+  font-size: 1.1rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.period {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--accent-blue);
+  margin-bottom: 1rem;
+  background-color: rgba(49, 130, 206, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.points {
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.points li {
+  margin-bottom: 0.5rem;
+}
+
+/* Skills Styles */
+.skillsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skillCategory {
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.skillCategory:hover {
+  transform: translateY(-5px);
+}
+
+.categoryTitle {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-blue);
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skillTag {
+  background-color: rgba(49, 130, 206, 0.1);
+  border: 1px solid rgba(49, 130, 206, 0.2);
+  color: var(--accent-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.skillTag:hover {
+  background-color: var(--accent-blue);
+  color: #fff;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+}
