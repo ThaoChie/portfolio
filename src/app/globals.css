@@ -1,15 +1,16 @@
 :root {
-  --bg-color: #f0f4f8; /* Soft light blue/grey */
-  --text-primary: #1a202c; /* Dark slate */
-  --text-secondary: #4a5568;
-  --accent-blue: #3182ce;
-  --accent-blue-hover: #2b6cb0;
-  --accent-glow: rgba(49, 130, 206, 0.4);
+  --bg-color: #ffffff;
+  --text-primary: #0F172A; /* Slate 900 for executive contrast */
+  --text-secondary: #475569; /* Slate 600 */
+  --accent-blue: #0284C7; /* Sky 600 vibrant yet corporate */
+  --accent-blue-hover: #0369A1;
+  --accent-glow: rgba(2, 132, 199, 0.25);
+  --border-light: rgba(15, 23, 42, 0.08);
   
-  /* Glassmorphism for light theme */
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  /* Glassmorphism executive tokens */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 4px 10px -3px rgba(15, 23, 42, 0.03);
   
   --font-geist-sans: var(--font-geist-sans);
   --font-geist-mono: var(--font-geist-mono);
@@ -24,22 +25,24 @@
 body {
   background-color: #ffffff;
   color: var(--text-primary);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  /* Beautiful soft sky mesh gradient background */
   background-image: 
-    radial-gradient(ellipse at 20% -10%, rgba(100, 190, 255, 0.7) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% -10%, rgba(90, 180, 255, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 10%, rgba(150, 210, 255, 0.5) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(220, 240, 255, 0.3) 0%, #ffffff 40%, #ffffff 100%);
+    radial-gradient(ellipse at 15% -5%, rgba(125, 211, 252, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% -5%, rgba(186, 230, 253, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 15%, rgba(224, 242, 254, 0.5) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(240, 249, 255, 0.4) 0%, #ffffff 35%, #ffffff 100%);
   background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover {
@@ -50,9 +53,15 @@ a:hover {
   background-color: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--border-light);
   border-radius: 1.5rem;
   box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.1), 0 8px 15px -5px rgba(15, 23, 42, 0.04);
+  border-color: rgba(2, 132, 199, 0.2);
 }
 
 .container {
@@ -64,51 +73,61 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #3182ce, #805ad5);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 50%, #4F46E5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 6.5rem 0;
+  position: relative;
 }
 
+/* Executive buttons */
 .btn {
-  display: inline-block;
-  padding: 0.85rem 2rem;
-  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 0.85rem;
   font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   outline: none;
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #3182ce, #4299e1);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
   color: #fff !important;
   box-shadow: 0 4px 14px 0 var(--accent-glow);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(49, 130, 206, 0.6);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
   transform: translateY(-2px);
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%);
 }
 
 .btn-outline {
-  background-color: var(--glass-bg);
-  color: var(--accent-blue);
-  border: 2px solid var(--accent-blue);
-  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .btn-outline:hover {
-  background-color: var(--accent-blue);
-  color: #fff;
+  background-color: #f8fafc;
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
 }

@@ -1,57 +1,73 @@
 import styles from './Projects.module.css';
+import { CheckCircle2, ExternalLink, Lock, Play } from 'lucide-react';
+
+function getYouTubeID(url) {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
 
 export default function Projects() {
   const projects = [
     {
       title: "AI-Powered Personal Finance App",
-      tech: ["ASP.NET Core", "ReactJS", "Gemini API", "Qdrant Vector DB"],
-      description: "A comprehensive AI-driven personal finance management application designed to optimize user experience through automated financial tracking and intelligent insights.",
+      category: "FINTECH CASE STUDY",
+      timeline: "Nov 2025 — Jan 2026",
+      tech: ["ASP.NET Core", "ReactJS", "Gemini Vision API", "Qdrant Vector DB"],
+      description: "An AI-driven personal finance management application engineered to automate financial tracking, receipt extraction, and personalized budgeting.",
       features: [
-        "Integrated Gemini Vision to automatically extract data from receipt/invoice images, reducing manual data entry time by 90%.",
-        "Implemented RAG (Retrieval-Augmented Generation) combined with a Vector Database (Qdrant) to deliver highly accurate, personalized financial advice.",
-        "Designed an automated budget allocation system to calculate daily Safe-to-Spend limits.",
-        "Interactive data visualization using Chart.js."
+        "Integrated Gemini Vision to automatically extract receipt & invoice data, cutting manual data entry time by 90%.",
+        "Implemented RAG (Retrieval-Augmented Generation) architecture with Qdrant vector database to deliver personalized, hallucination-free financial advice.",
+        "Architected an automated budget allocation engine calculating daily Safe-to-Spend limits with interactive Chart.js reporting."
       ],
       github: "https://github.com/ThaoChie/AI-Powered-Personal-Finance-Management-Application",
+      demo: "", // Dán link YouTube vào đây để nhúng video trực tiếp
       image: "/images/finance.png"
     },
     {
       title: "E-Learning Security System",
-      tech: ["TypeScript", "Web Security", "Authentication", "Authorization"],
-      description: "A robust and secure architecture for an e-learning platform, focusing on protecting user data integrity and preventing unauthorized access.",
+      category: "SYSTEM SECURITY & ACCESS CONTROL",
+      timeline: "2024",
+      tech: ["OAuth 2.0 / JWT", "Role-Based Access Control (RBAC)", "OWASP Security Standards", "Data Protection"],
+      description: "A secure educational platform architecture focusing specifically on robust authorization protocols, multi-level access control, and defense against web vulnerabilities.",
       features: [
-        "Analyzed and gathered business requirements to map out secure user flows.",
-        "Designed comprehensive authorization and authentication modules.",
-        "Implemented strict security protocols and measures against common web vulnerabilities.",
-        "Ensured compliance with data protection standards for educational environments."
+        "Elicited and mapped comprehensive security user flows focusing on multi-role authorization and token-based authentication.",
+        "Architected strict Role-Based Access Control (RBAC) to isolate administrative privileges and safeguard sensitive student records.",
+        "Implemented defensive measures against common OWASP web vulnerabilities (XSS, CSRF, SQL Injection) to maintain system integrity."
       ],
-      github: "https://github.com/ThaoChie/Elearning-Sys",
+      github: "https://github.com/ThaoChie/elearning-system",
+      demo: "https://youtu.be/fvz_G0ROeyg",
       image: "/images/elearning.png"
     },
     {
       title: "Hybrid Recommendation System",
-      tech: ["Python", "Machine Learning", "Collaborative Filtering", "Data Processing"],
-      description: "An advanced e-commerce hybrid recommender system that leverages both content-based and collaborative filtering to boost sales and user engagement.",
+      category: "MACHINE LEARNING & ALGORITHMIC MODELING",
+      timeline: "2024",
+      tech: ["Python", "Machine Learning", "Collaborative Filtering", "Content-Based Filtering", "Scikit-Learn & Pandas"],
+      description: "An advanced machine learning recommendation engine blending collaborative and content-based filtering algorithms to predict user preferences with high precision.",
       features: [
-        "Integrated multiple recommendation algorithms to optimize the accuracy of product suggestions.",
-        "Researched and implemented specialized techniques to mitigate the cold-start problem for new users and products.",
-        "Processed large e-commerce datasets to extract meaningful business insights.",
-        "Demonstrated strong analytical skills in evaluating model performance."
+        "Engineered hybrid machine learning models combining user-item collaborative matrix factorization with content similarity vectors.",
+        "Researched and integrated specialized algorithmic fallback logic to effectively solve the sparsity and cold-start prediction problem.",
+        "Processed and pre-processed complex transaction datasets using Python (Pandas/NumPy) to train and evaluate recommendation accuracy."
       ],
       github: "https://github.com/ThaoChie/hybrid-recommendation-system",
+      demo: "https://youtu.be/XQ6TlrCnTgw", // Video YouTube sẽ được nhúng thẳng vào khung ảnh
       image: "/images/ecommerce.png"
     },
     {
-      title: "LiMS System",
-      tech: ["Enterprise System", "Dashboard UI", "Data Management"],
-      description: "A Laboratory Information Management System (LiMS) built to streamline laboratory workflows, track samples efficiently, and ensure absolute data accuracy and compliance.",
+      title: "Library Information Management System (LiMS)",
+      category: "ENTERPRISE MANAGEMENT SYSTEM & WORKFLOW MODELING",
+      timeline: "2024 — 2025",
+      tech: ["Enterprise System", "BPMN / UML Modeling", "SQL Database", "Workflow Automation"],
+      description: "A comprehensive library information management system engineered to streamline book cataloging, reader circulation workflows, reservations, and inventory auditing.",
       features: [
-        "Centralized dashboard for tracking hundreds of daily laboratory samples in real-time.",
-        "Automated reporting features that minimize human error in data transcription.",
-        "Strict access controls and audit trails to maintain compliance with health and safety regulations.",
-        "Intuitive user interface tailored for laboratory technicians and managers."
+        "Elicited stakeholder requirements and modeled complete AS-IS and TO-BE workflows using BPMN 2.0 and UML use case diagrams.",
+        "Engineered automated borrowing and returning lifecycles with built-in due date tracking and penalty calculation logic.",
+        "Designed structured database schemas and multi-level role-based access control (RBAC) for librarians, administrators, and readers."
       ],
-      github: "#",
+      github: "https://github.com/ThaoChie/LiMS-He-Thong-Quan-Tri-Thu-Vien",
+      demo: "",
       image: "/images/lims.png"
     }
   ];
@@ -61,56 +77,82 @@ export default function Projects() {
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.heading}>
-            Featured <span className="text-gradient">Projects</span>
+            Featured <span className="text-gradient">Case Studies</span>
           </h2>
-          <p className={styles.subHeading}>In-depth look at my technical implementations and system interfaces</p>
+          <p className={styles.subHeading}>Detailed examination of business analysis, system architecture, and quality assurance</p>
         </div>
 
         <div className={styles.projectList}>
-          {projects.map((project, index) => (
-            <div key={index} className={`${styles.projectCard} glass-panel`}>
-              <div className={styles.imageColumn}>
-                <div className={styles.imageWrapper}>
-                  <img src={project.image} alt={`${project.title} UI`} className={styles.projectImage} />
-                  <div className={styles.imageOverlay}></div>
+          {projects.map((project, index) => {
+            const ytId = getYouTubeID(project.demo);
+            return (
+              <div key={index} className={`${styles.projectCard} glass-panel`}>
+                <div className={styles.imageColumn}>
+                  <div className={styles.imageWrapper}>
+                    {ytId ? (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1&vq=hd1080`}
+                        title={`${project.title} Video Demo`}
+                        className={styles.videoFrame}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      ></iframe>
+                    ) : (
+                      <img src={project.image} alt={`${project.title} UI`} className={styles.projectImage} />
+                    )}
+                  </div>
                 </div>
-              </div>
-              
-              <div className={styles.contentColumn}>
-                <h3 className={styles.title}>{project.title}</h3>
                 
-                <div className={styles.techStack}>
-                  {project.tech.map((t, i) => (
-                    <span key={i} className={styles.techTag}>{t}</span>
-                  ))}
-                </div>
-                
-                <p className={styles.description}>{project.description}</p>
-                
-                <div className={styles.featuresBox}>
-                  <h4 className={styles.featuresTitle}>Key Features & Highlights:</h4>
-                  <ul className={styles.featuresList}>
-                    {project.features.map((feature, i) => (
-                      <li key={i}>{feature}</li>
+                <div className={styles.contentColumn}>
+                  <div className={styles.metaRow}>
+                    <span className={styles.categoryBadge}>{project.category}</span>
+                    <span className={styles.timeline}>{project.timeline}</span>
+                  </div>
+
+                  <h3 className={styles.title}>{project.title}</h3>
+                  <p className={styles.description}>{project.description}</p>
+                  
+                  <div className={styles.techStack}>
+                    {project.tech.map((t, i) => (
+                      <span key={i} className={styles.techTag}>{t}</span>
                     ))}
-                  </ul>
-                </div>
-                
-                <div className={styles.links}>
-                  {project.github !== "#" ? (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{padding: '0.6rem 1.2rem', fontSize: '0.9rem'}}>
-                      <span style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  </div>
+
+                  <div className={styles.featuresBox}>
+                    <h4 className={styles.featuresTitle}>Key Architectural Highlights:</h4>
+                    <ul className={styles.featuresList}>
+                      {project.features.map((feature, i) => (
+                        <li key={i} className={styles.featureItem}>
+                          <span className={styles.checkIcon}><CheckCircle2 size={18} /></span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className={styles.links}>
+                    {project.github !== "#" ? (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{padding: '0.65rem 1.4rem', fontSize: '0.9rem'}}>
+                        <ExternalLink size={18} />
                         View Source Code
+                      </a>
+                    ) : (
+                      <span className={styles.pendingLink}>
+                        <Lock size={16} /> Internal Enterprise System
                       </span>
-                    </a>
-                  ) : (
-                    <span className={styles.pendingLink}>System currently internal/private</span>
-                  )}
+                    )}
+
+                    {project.demo && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{padding: '0.65rem 1.4rem', fontSize: '0.9rem'}}>
+                        <Play size={16} className="text-[#0284C7]" fill="#0284C7" />
+                        Watch on YouTube
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

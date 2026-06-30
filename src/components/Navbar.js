@@ -4,6 +4,10 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
+        <a href="#home" className={styles.logo}>
+          <div className={styles.logoBadge}>PT</div>
+          <span>Phuong Thao</span>
+        </a>
         <div className={styles.links}>
           <a href="#home">Home</a>
           <a href="#about">About</a>

@@ -1,15 +1,16 @@
 import styles from './Experience.module.css';
+import { Briefcase, Code, Wrench, Brain } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [
     {
-      company: "Bank for Investment and Development of Vietnam (BIDV)",
+      company: "Bank for Investment and Development of Vietnam (BIDV) - Onsite",
       role: "System Tester",
       period: "Jun 2025 — Oct 2025",
       points: [
-        "Acted as a System Tester for the centralized AMRM project, analyzing business documents and designing test cases.",
-        "Collaborated cross-functionally with Developers and Business Analysts to troubleshoot and resolve critical defects.",
-        "Leveraged SQL and API testing to validate data flows, directly supporting technical analysis for system solutions."
+        "Acted as a core System Tester for the centralized AMRM project, rigorously analyzing business documentation and designing end-to-end test suites.",
+        "Collaborated cross-functionally with Software Engineers and Business Analysts to troubleshoot defects and ensure alignment with business requirements.",
+        "Executed complex SQL and API validation tests to inspect backend data integrity and support technical decision-making."
       ]
     },
     {
@@ -17,23 +18,27 @@ export default function Experience() {
       role: "Intern Manual Tester",
       period: "May 2025 — Jun 2025",
       points: [
-        "Participated in requirement analysis, created test cases, and executed functional testing for software products."
+        "Participated in comprehensive requirement gathering sessions and authored structured test cases for enterprise client applications.",
+        "Executed functional and regression testing cycles, documenting anomalies clearly in defect tracking platforms."
       ]
     }
   ];
 
   const skillCategories = [
     {
-      title: "Technical Skills",
-      skills: ["Python", "C#", "JavaScript", ".NET Core", "FastAPI", "MySQL", "SQL Server"]
+      title: "Business Analysis & Core Competencies",
+      icon: <Brain size={20} color="#0284C7" />,
+      skills: ["Requirement Gathering", "BRD / FRS Authoring", "Use Case Modeling", "Agile / Scrum", "Critical Thinking", "Stakeholder Comm."]
     },
     {
-      title: "Tools & Frameworks",
-      skills: ["Jira", "Postman", "Swagger", "Visual Paradigm", "Git", "Docker"]
+      title: "Technical Languages & Frameworks",
+      icon: <Code size={20} color="#0D9488" />,
+      skills: ["Python", "C#", "JavaScript", ".NET Core", "FastAPI", "SQL Querying", "Relational Schemas"]
     },
     {
-      title: "Business Analysis",
-      skills: ["Requirement Gathering", "Problem Solving", "Critical Thinking", "Cross-functional Comm.", "Agile"]
+      title: "Testing & Architecture Tools",
+      icon: <Wrench size={20} color="#4F46E5" />,
+      skills: ["Postman API Testing", "Jira & Confluence", "Swagger UI", "Visual Paradigm (UML)", "Git / GitHub", "Docker"]
     }
   ];
 
@@ -43,15 +48,17 @@ export default function Experience() {
         <div className={styles.wrapper}>
           
           <div className={styles.expCol}>
-            <h2 className={styles.heading}>Experience</h2>
+            <h2 className={styles.heading}>Professional Track</h2>
             <div className={styles.timeline}>
               {experiences.map((exp, index) => (
                 <div key={index} className={styles.timelineItem}>
                   <div className={styles.timelineDot}></div>
                   <div className={`${styles.timelineContent} glass-panel`}>
-                    <h3 className={styles.role}>{exp.role}</h3>
+                    <div className={styles.roleHeader}>
+                      <h3 className={styles.role}>{exp.role}</h3>
+                      <span className={styles.period}>{exp.period}</span>
+                    </div>
                     <h4 className={styles.company}>{exp.company}</h4>
-                    <span className={styles.period}>{exp.period}</span>
                     <ul className={styles.points}>
                       {exp.points.map((point, i) => (
                         <li key={i}>{point}</li>
@@ -64,11 +71,14 @@ export default function Experience() {
           </div>
 
           <div className={styles.skillsCol}>
-            <h2 className={styles.heading}>Skills</h2>
+            <h2 className={styles.heading}>Technical Matrix</h2>
             <div className={styles.skillsWrapper}>
               {skillCategories.map((category, index) => (
                 <div key={index} className={`${styles.skillCategory} glass-panel`}>
-                  <h3 className={styles.categoryTitle}>{category.title}</h3>
+                  <h3 className={styles.categoryTitle}>
+                    {category.icon}
+                    <span>{category.title}</span>
+                  </h3>
                   <div className={styles.skillTags}>
                     {category.skills.map((skill, i) => (
                       <span key={i} className={styles.skillTag}>{skill}</span>

@@ -1,4 +1,5 @@
 import styles from './Contact.module.css';
+import { Mail, Phone, Send, ExternalLink } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -7,37 +8,42 @@ export default function Contact() {
         <div className={`${styles.contactCard} glass-panel`}>
           <div className={styles.glowBg}></div>
           <div className={styles.content}>
-            <h2 className={styles.heading}>Get In Touch</h2>
+            <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#0284C7', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              NEXT STEPS
+            </span>
+            <h2 className={styles.heading} style={{ marginTop: '0.5rem' }}>Let&apos;s Build Impactful Systems Together</h2>
             <p className={styles.description}>
-              I'm currently looking for new opportunities as a Business Analyst Intern. 
-              Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
+              I am currently seeking opportunities as an IT Business Analyst Intern or System Tester in Hanoi. 
+              Whether you are looking for rigorous requirement engineering, API quality testing, or cross-functional bridge leadership, let&apos;s connect!
             </p>
             
             <div className={styles.contactInfo}>
               <a href="mailto:phuongthao.vju@gmail.com" className={styles.infoItem}>
                 <div className={styles.iconBox}>
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <Mail size={22} />
                 </div>
                 <span>phuongthao.vju@gmail.com</span>
               </a>
               
               <a href="tel:0944138963" className={styles.infoItem}>
                 <div className={styles.iconBox}>
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <Phone size={22} />
                 </div>
                 <span>0944 138 963</span>
               </a>
 
               <a href="https://github.com/ThaoChie" target="_blank" rel="noopener noreferrer" className={styles.infoItem}>
                 <div className={styles.iconBox}>
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <ExternalLink size={22} />
                 </div>
                 <span>github.com/ThaoChie</span>
               </a>
             </div>
 
             <div className={styles.action}>
-              <a href="mailto:phuongthao.vju@gmail.com" className="btn btn-primary">Say Hello</a>
+              <a href="mailto:phuongthao.vju@gmail.com" className="btn btn-primary" style={{ padding: '0.9rem 2.2rem' }}>
+                <Send size={18} /> Send an Email
+              </a>
             </div>
           </div>
         </div>
