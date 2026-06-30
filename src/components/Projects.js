@@ -37,7 +37,7 @@ export default function Projects() {
         "Implemented defensive measures against common OWASP web vulnerabilities (XSS, CSRF, SQL Injection) to maintain system integrity."
       ],
       github: "https://github.com/ThaoChie/elearning-system",
-      demo: "https://youtu.be/fvz_G0ROeyg",
+      demo: "https://youtu.be/m-Bgw8E2jeM",
       image: "/images/elearning.png"
     },
     {
