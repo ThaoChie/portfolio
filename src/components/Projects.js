@@ -11,21 +11,6 @@ function getYouTubeID(url) {
 export default function Projects() {
   const projects = [
     {
-      title: "AI-Powered Personal Finance App",
-      category: "FINTECH CASE STUDY",
-      timeline: "Nov 2025 — Jan 2026",
-      tech: ["ASP.NET Core", "ReactJS", "Gemini Vision API", "Qdrant Vector DB"],
-      description: "An AI-driven personal finance management application engineered to automate financial tracking, receipt extraction, and personalized budgeting.",
-      features: [
-        "Integrated Gemini Vision to automatically extract receipt & invoice data, cutting manual data entry time by 90%.",
-        "Implemented RAG (Retrieval-Augmented Generation) architecture with Qdrant vector database to deliver personalized, hallucination-free financial advice.",
-        "Architected an automated budget allocation engine calculating daily Safe-to-Spend limits with interactive Chart.js reporting."
-      ],
-      github: "https://github.com/ThaoChie/AI-Powered-Personal-Finance-Management-Application",
-      demo: "", // Dán link YouTube vào đây để nhúng video trực tiếp
-      image: "/images/finance.png"
-    },
-    {
       title: "E-Learning Security System",
       category: "SYSTEM SECURITY & ACCESS CONTROL",
       timeline: "2024",
@@ -54,21 +39,6 @@ export default function Projects() {
       github: "https://github.com/ThaoChie/hybrid-recommendation-system",
       demo: "https://youtu.be/XQ6TlrCnTgw", // Video YouTube sẽ được nhúng thẳng vào khung ảnh
       image: "/images/ecommerce.png"
-    },
-    {
-      title: "Library Information Management System (LiMS)",
-      category: "ENTERPRISE MANAGEMENT SYSTEM & WORKFLOW MODELING",
-      timeline: "2024 — 2025",
-      tech: ["Enterprise System", "BPMN / UML Modeling", "SQL Database", "Workflow Automation"],
-      description: "A comprehensive library information management system engineered to streamline book cataloging, reader circulation workflows, reservations, and inventory auditing.",
-      features: [
-        "Elicited stakeholder requirements and modeled complete AS-IS and TO-BE workflows using BPMN 2.0 and UML use case diagrams.",
-        "Engineered automated borrowing and returning lifecycles with built-in due date tracking and penalty calculation logic.",
-        "Designed structured database schemas and multi-level role-based access control (RBAC) for librarians, administrators, and readers."
-      ],
-      github: "https://github.com/ThaoChie/LiMS-He-Thong-Quan-Tri-Thu-Vien",
-      demo: "",
-      image: "/images/lims.png"
     }
   ];
 
